@@ -11,3 +11,5 @@
 安装antd组件库 yarn add antd-mobile@next
 
 安装修改 CRA 配置的包：yarn add -D @craco/craco
+
+安装 px 转 vw 的包：yarn add -D postcss-px-to-viewport
