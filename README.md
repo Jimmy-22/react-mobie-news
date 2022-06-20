@@ -1,3 +1,14 @@
+### 技术栈
+- 脚手架 create-react-app
+- react hooks
+- 状态管理：mobx
+- UI组件库：antd-mobile
+- 路由：react-router-dom 以及 history
+- CSS Modules 避免组件之间的样式冲突
+- TypeScript
+- 其他：axios、sass、lodash、websocket
+
+
 创建项目 npx create-react-app react-mobie-news --template typescript
 
 进入项目根目录：cd react-mobie-news
