@@ -7,3 +7,7 @@
 安装sass: yarn add sass
 
 安装路由: yarn add react-router-dom  安装路由类型文件：yarn add @types/react-router-dom -D
+
+安装antd组件库 yarn add antd-mobile@next
+
+安装修改 CRA 配置的包：yarn add -D @craco/craco
