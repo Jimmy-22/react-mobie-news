@@ -1,0 +1,50 @@
+.root {
+ :global {
+   .login-form {
+     padding: 0 33px;
+     .title {
+        margin: 54px 0 13px 0;
+      } 
+      .adm-list {
+        --align-items: end !important;
+        --border-inner: none !important;
+      }
+      .adm-list-default {
+        border: none;
+      }
+      .adm-list-item {
+        padding: 0;
+      }
+      .login-item {
+        border-bottom: 1px solid #f0f0f0;
+        > .adm-list-item-content {
+          height: 70px;
+        }
+      }
+      .adm-list-item-content {
+        position: relative;
+        border-bottom: none;
+      }
+      .adm-input-wrapper {
+        --placeholder-color: #a5a6ab;
+      }
+      .code-extra {
+        color: #595769;
+        font-size: 14px;
+        &-disabled {
+          color: #a5a6ab;
+        }
+      }
+      .adm-list-item-description {
+        position: absolute;
+        bottom: -25px;
+      }
+      .login-submit {
+        height: 50px;
+        margin-top: 38px;
+        border: none;
+        font-size: 16px;
+      }
+    }
+ }
+}
