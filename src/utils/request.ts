@@ -1,6 +1,7 @@
 // 封装axios
 import axios from 'axios'
 import { Toast } from 'antd-mobile'
+import { getToken } from '@/utils/Token'
 
 const service = axios.create({
   baseURL: 'http://geek.itheima.net/v1_0/',
@@ -10,6 +11,11 @@ const service = axios.create({
 // 请求拦截器
 service.interceptors.request.use(
   (config) => {
+    // do...发请求之前
+    const token = getToken().token
+    if (token) {
+      config.headers!['Authorization'] = `Bearer ${token}`
+    }
     return config
   },
   (error) => {
