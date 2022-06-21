@@ -26,3 +26,5 @@
 安装 px 转 vw 的包：yarn add -D postcss-px-to-viewport
 
 降低React版本 yarn add react@17.0.2 react-dom@17.0.2 --save
+
+安装axios包 yarn add axios
