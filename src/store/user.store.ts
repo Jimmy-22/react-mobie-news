@@ -1,12 +1,9 @@
 // 用户信息模块
 import { makeAutoObservable } from 'mobx'
 import { service } from '../utils/request'
+import { getToken, setToken } from '@/utils/Token'
+import { TokenInfo } from '@/types'
 
-// 定义后端实际返回的token，data类型
-type TokenInfo = {
-  token: string
-  refresh_token: string
-}
 // 定义通用的返回值结构
 type LoginResponce = {
   message: string
@@ -22,7 +19,8 @@ class userStore {
   tokenInfo: TokenInfo
   constructor() {
     makeAutoObservable(this)
-    this.tokenInfo = {
+    // 以本地缓存作为初始值
+    this.tokenInfo = getToken() || {
       refresh_token: '',
       token: ''
     }
@@ -33,6 +31,8 @@ class userStore {
       code
     })
     this.tokenInfo = result.data.data
+    // 拿到token之后往本地存一份
+    setToken(result.data.data)
   }
 }
 
