@@ -24,6 +24,9 @@
       .adm-list-item-content {
         position: relative;
         border-bottom: none;
+        &-main {
+          margin-bottom: 8px;
+        }
       }
       .adm-input-wrapper {
         --placeholder-color: #a5a6ab;

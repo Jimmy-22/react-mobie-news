@@ -17,16 +17,18 @@ const Login = () => {
       <div className="login-form">
         <h2 className="title">账号登录</h2>
         <Form onFinish={onFinish}>
-          <Form.Item
-            name="mobie"
-            className="login-item"
-            rules={[
-              { required: true, message: '请输入手机号' },
-              { pattern: /^1[3-9]\d{9}$/, message: '手机号格式错误' }
-            ]}
-          >
-            <Input placeholder="请输入姓名" />
-          </Form.Item>
+          <List.Item>
+            <Form.Item
+              name="mobie"
+              className="login-item"
+              rules={[
+                { required: true, message: '请输入手机号' },
+                { pattern: /^1[3-9]\d{9}$/, message: '手机号格式错误' }
+              ]}
+            >
+              <Input placeholder="请输入姓名" />
+            </Form.Item>
+          </List.Item>
           <List.Item className="login-code-extra">
             <Form.Item
               name="code"
