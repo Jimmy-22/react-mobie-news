@@ -28,3 +28,5 @@
 降低React版本 yarn add react@17.0.2 react-dom@17.0.2 --save
 
 安装axios包 yarn add axios
+
+安装 mobx yarn add mobx

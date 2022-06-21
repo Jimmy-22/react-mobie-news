@@ -1,14 +1,17 @@
 import { NavBar, Form, Input, List, Button } from 'antd-mobile'
 import styles from './index.module.scss'
+import { useStore } from '@/store/index'
 
 type LoginForm = {
   mobie: string
   code: string
 }
 
+// 使用observer方法包裹组件 让组件可响应变化
 const Login = () => {
-  const onFinish = (values: LoginForm) => {
-    console.log(values)
+  const { userStore } = useStore()
+  const onFinish = async (values: LoginForm) => {
+    await userStore.login(values)
   }
 
   return (
@@ -26,7 +29,7 @@ const Login = () => {
                 { pattern: /^1[3-9]\d{9}$/, message: '手机号格式错误' }
               ]}
             >
-              <Input placeholder="请输入姓名" />
+              <Input placeholder="请输入手机号" />
             </Form.Item>
           </List.Item>
           <List.Item className="login-code-extra">
