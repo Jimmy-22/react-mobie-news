@@ -1,6 +1,7 @@
-import { NavBar, Form, Input, List, Button } from 'antd-mobile'
+import { NavBar, Form, Input, List, Button, Toast } from 'antd-mobile'
 import styles from './index.module.scss'
 import { useStore } from '@/store/index'
+import { useNavigate } from 'react-router-dom'
 
 type LoginForm = {
   mobie: string
@@ -10,8 +11,17 @@ type LoginForm = {
 // 使用observer方法包裹组件 让组件可响应变化
 const Login = () => {
   const { userStore } = useStore()
+  const navigate = useNavigate()
   const onFinish = async (values: LoginForm) => {
     await userStore.login(values)
+    Toast.show({
+      content: '登录成功',
+      duration: 600,
+      afterClose() {
+        // 返回首页
+        navigate('/')
+      }
+    })
   }
 
   return (
