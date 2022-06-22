@@ -2,7 +2,7 @@
 import { makeAutoObservable } from 'mobx'
 import { service } from '../utils/request'
 import { getToken, setToken } from '@/utils/Token'
-import { TokenInfo } from '@/types'
+import { TokenInfo, User, ApiRes } from '@/types'
 
 // 定义通用的返回值结构
 type LoginResponce = {
@@ -17,6 +17,8 @@ type LoginForm = {
 
 class userStore {
   tokenInfo: TokenInfo
+  // 声明用户信息
+  userInfo: User
   constructor() {
     makeAutoObservable(this)
     // 以本地缓存作为初始值
@@ -24,6 +26,7 @@ class userStore {
       refresh_token: '',
       token: ''
     }
+    this.userInfo = {} as User
   }
   login = async ({ mobie, code }: LoginForm) => {
     const result = await service.post<LoginResponce>('/authorizations', {
@@ -33,6 +36,12 @@ class userStore {
     this.tokenInfo = result.data.data
     // 拿到token之后往本地存一份
     setToken(result.data.data)
+  }
+
+  // 获取用户数据的action
+  getUser = async () => {
+    const res = await service.get<ApiRes<User>>('/user')
+    this.userInfo = res.data.data
   }
 }
 
