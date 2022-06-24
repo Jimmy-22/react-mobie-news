@@ -3,8 +3,10 @@ import axios from 'axios'
 import { Toast } from 'antd-mobile'
 import { getToken } from '@/utils/Token'
 
+// const url = process.env.REACT_APP_API_URL
+
 const service = axios.create({
-  baseURL: 'http://geek.itheima.net/v1_0/',
+  baseURL: 'http://localhost:3000',
   timeout: 5000
 })
 
@@ -12,10 +14,10 @@ const service = axios.create({
 service.interceptors.request.use(
   (config) => {
     // do...发请求之前
-    const token = getToken().token
-    if (token) {
-      config.headers!['Authorization'] = `Bearer ${token}`
-    }
+    // const token = getToken().token
+    // if (token) {
+    //   config.headers!['Authorization'] = `Bearer ${token}`
+    // }
     return config
   },
   (error) => {
