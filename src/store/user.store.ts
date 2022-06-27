@@ -29,11 +29,12 @@ class userStore {
     this.userInfo = {} as User
   }
   login = async ({ mobie, code }: LoginForm) => {
-    // const result = await service.post<LoginResponce>('/users', {
-    //   mobie,
-    //   code
-    // })
-    const result = await service.get<LoginResponce>('/users')
+    const result = await service.post<LoginResponce>('/users', {
+      mobie,
+      code
+    })
+    console.log('res', result)
+    // const result = await service.get<LoginResponce>('/users')
     this.tokenInfo = result.data.data
     // 拿到token之后往本地存一份
     setToken(result.data.data)

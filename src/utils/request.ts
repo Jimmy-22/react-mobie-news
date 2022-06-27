@@ -3,10 +3,11 @@ import axios from 'axios'
 import { Toast } from 'antd-mobile'
 import { getToken } from '@/utils/Token'
 
-// const url = process.env.REACT_APP_API_URL
+const url = ' http://127.0.0.1:4523/m1/1187659-0-default/'
 
 const service = axios.create({
-  baseURL: 'http://localhost:3000',
+  // baseURL: 'http://localhost:3000',
+  baseURL: url,
   timeout: 5000
 })
 
@@ -14,10 +15,10 @@ const service = axios.create({
 service.interceptors.request.use(
   (config) => {
     // do...发请求之前
-    // const token = getToken().token
-    // if (token) {
-    //   config.headers!['Authorization'] = `Bearer ${token}`
-    // }
+    const token = getToken().token
+    if (token) {
+      config.headers!['Authorization'] = `Bearer ${token}`
+    }
     return config
   },
   (error) => {
